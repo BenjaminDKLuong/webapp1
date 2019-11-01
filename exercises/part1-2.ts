@@ -4,7 +4,11 @@
 // Part 1: Add the 5 variables here
 
 
-
+let spacecraftName:string=	'Determination';
+let speedMph:	number	=17500;
+let kilometersToMars:	number	=225000000;
+let kilometersToTheMoon:	number	=384400;
+let milesPerKilometer:	number=	0.621;
 
 
 // Code part 2 here:
