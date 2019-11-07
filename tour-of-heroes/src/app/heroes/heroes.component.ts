@@ -29,7 +29,7 @@ export class HeroesComponent implements OnInit {
   //   this.heroes = this.heroService.getHeroes();
   // }
 
-  // OBSERVABLE
+  // subscribe
   getHeroes(): void {
     this.heroService.getHeroes()
         .subscribe(heroes => this.heroes = heroes);
