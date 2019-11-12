@@ -11,18 +11,22 @@ import { StopTrainingComponent } from './stop-training.component';
   styleUrls: ['./current-training.component.css']
 })
 export class CurrentTrainingComponent implements OnInit {
-  @Output() trainingStop = new EventEmitter<void>();
+  @Output() trainingExit = new EventEmitter<void>();
   progress = 0;
   timer: number;
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.startOrResumeTimer();
+  }
+
+  startOrResumeTimer(){
     this.timer = setInterval(() => {
       this.progress = this.progress + 5;
       if (this.progress >= 100) {
         clearInterval(this.timer);
-        // this.trainingStop.emit();
+        // this.trainingExit.emit();
       }
     }, 1000);
   }
@@ -30,22 +34,18 @@ export class CurrentTrainingComponent implements OnInit {
   onStop() {
     clearInterval(this.timer);
     // this.trainingStop.emit();
-    this.dialog.open(StopTrainingComponent, { 
-      data:{
+    const dialogRef = this.dialog.open(StopTrainingComponent, {
+      data: {
         progress: this.progress
-    }})
+      }
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log(result);
+      if (result) {
+        this.trainingExit.emit();
+      } else {
+        this.startOrResumeTimer();
+      }
+    });
   }
-
-  // onStop(): void {
-  //   clearInterval(this.timer);
-  //   const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-  //     width: '250px',
-  //     data: { name: this.name, animal: this.animal }
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     this.animal = result;
-  //   });
-  // }
 }

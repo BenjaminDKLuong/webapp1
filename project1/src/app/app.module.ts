@@ -20,6 +20,7 @@ import { StopTrainingComponent } from './training/current-training/stop-training
 // import { MatMomentDateModule, MomentDateAdapter } from "@angular/material-moment-adapter";
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     FormsModule,
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
   entryComponents: [StopTrainingComponent]
 })
