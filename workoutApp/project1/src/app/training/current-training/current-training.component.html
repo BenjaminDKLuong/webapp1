@@ -19,5 +19,6 @@
     <mat-progress-spinner mode="determinate" fxLayoutAlign="center" [value]="progress"></mat-progress-spinner>
     <h1>{{progress}}%</h1>
     <p>Keep on going, you can do it!</p>
-    <button type="submit" mat-raised-button (click)="onStop()" color="accent">Stop</button>
+    <button type="submit" mat-raised-button (click)="onStop()" color="accent" *ngIf="progress!==100">Stop</button>
+    <button type="submit" mat-raised-button (click)="onDone()" color="accent" *ngIf="progress===100">Done</button>
 </section>

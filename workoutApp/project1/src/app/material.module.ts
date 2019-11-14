@@ -14,7 +14,8 @@ import {
     MatCardModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -23,7 +24,8 @@ import {
         MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,
         MatCheckboxModule, MatSidenavModule, MatToolbarModule,
         MatListModule, MatTabsModule, MatCardModule,
-        MatSelectModule, MatProgressSpinnerModule,MatDialogModule
+        MatSelectModule, MatProgressSpinnerModule,MatDialogModule,
+        MatTableModule
     ],
 
     exports: [
@@ -31,7 +33,8 @@ import {
         MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,
         MatCheckboxModule, MatSidenavModule, MatToolbarModule,
         MatListModule, MatTabsModule, MatCardModule,
-        MatSelectModule, MatProgressSpinnerModule,MatDialogModule
+        MatSelectModule, MatProgressSpinnerModule,MatDialogModule,
+        MatTableModule
     ]
 })
 
