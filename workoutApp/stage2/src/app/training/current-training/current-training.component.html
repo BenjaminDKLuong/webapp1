@@ -1,0 +1,24 @@
+<!-- <section class="current-training" fxLayout fxLayoutAlign="center">
+    <mat-card fxFlex.xs="100%" fxFlex="400px">
+
+        <mat-card-content fxLayout = "column" fxLayoutAlign="center center">
+            <mat-progress-spinner mode="determinate" fxLayoutAlign="center" value="20"></mat-progress-spinner>
+            <h1>Progress</h1>
+            <p>Keep on going, you can do it!</p>
+        </mat-card-content>
+
+        <mat-card-actions fxLayoutAlign="center">
+            <button type="submit" mat-raised-button (click)="stopTraining()" color="accent">Stop</button>
+        </mat-card-actions>
+    </mat-card>
+</section> -->
+
+
+
+<section class="current-training" fxLayout="column" fxLayoutAlign="center center">
+    <mat-progress-spinner mode="determinate" fxLayoutAlign="center" [value]="progress"></mat-progress-spinner>
+    <h1>{{progress}}%</h1>
+    <p>Keep on going, you can do it!</p>
+    <button type="submit" mat-raised-button (click)="onStop()" color="accent" *ngIf="progress!==100">Stop</button>
+    <button type="submit" mat-raised-button (click)="onDone()" color="accent" *ngIf="progress===100">Done</button>
+</section>
